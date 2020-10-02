@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/link-ws": "^2.0.0-beta.3",
+    "@apollo/react-hooks": "^4.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,9 +12,17 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.9",
+    "apollo-boost": "^0.4.9",
+    "graphql": "^15.3.0",
+    "graphql-tag": "^2.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "subscriptions-transport-ws": "^0.9.18",
     "typescript": "~3.7.2"
   },
   "scripts": {
@@ -35,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.2.2"
   }
 }
