@@ -7,9 +7,10 @@ import { Provider } from 'react-redux';
 import { Store, createStore, applyMiddleware } from 'redux';
 import reducer from './store/reducer';
 import thunk from 'redux-thunk';
-const store: Store<ScoreState, ScoreAction> & {
+import { composeWithDevTools } from 'redux-devtools-extension';
+const store: Store<GameState, GameAction> & {
   dispatch: DispatchType;
-} = createStore(reducer, applyMiddleware(thunk));
+} = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

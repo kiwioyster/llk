@@ -8,6 +8,7 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import { addScore } from './store/actionCreators';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import Score from './components/Score';
+import GameGrid from './components/GameGrid';
 const GRAPHQL_ENDPOINT = 'romantic-shrew-59.hasura.app/v1/graphql';
 const httpLink = new HttpLink({
   uri: `https://${GRAPHQL_ENDPOINT}`,
@@ -35,7 +36,7 @@ function App() {
     link: splitLink,
   });
   const highScores: readonly IScore[] = useSelector(
-    (s: ScoreState) => s.scores,
+    (s: GameState) => s.scores,
     shallowEqual
   );
   const dispatch = useDispatch();
@@ -44,7 +45,6 @@ function App() {
     <ApolloProvider client={client}>
       <div className='App'>
         <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
@@ -61,6 +61,7 @@ function App() {
             );
           })}
           <Score></Score>
+          <GameGrid></GameGrid>
         </header>
       </div>
     </ApolloProvider>
