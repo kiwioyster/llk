@@ -35,17 +35,17 @@ function App() {
     cache: new InMemoryCache(),
     link: splitLink,
   });
-  const highScores: readonly IScore[] = useSelector(
-    (s: GameState) => s.scores,
-    shallowEqual
-  );
-  const dispatch = useDispatch();
+  // const highScores: readonly IScore[] = useSelector(
+  //   (s: GameState) => s.scores,
+  //   shallowEqual
+  // );
+  // const dispatch = useDispatch();
 
   return (
     <ApolloProvider client={client}>
       <div className='App'>
         <header className='App-header'>
-          <p>
+          {/* <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
           <button
@@ -59,8 +59,8 @@ function App() {
                 Name: {h.name}, Score: {h.seconds}
               </div>
             );
-          })}
-          <Score></Score>
+          })} */}
+
           <GameGrid></GameGrid>
         </header>
       </div>

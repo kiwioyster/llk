@@ -27,4 +27,13 @@ interface ICell {
     y: number;
   };
   content?: 'path' | 'tile';
+  id?: number;
+}
+
+interface ModalProps {
+  type: 'error' | 'success';
+  header: string;
+  body?: string;
+  btnText: string;
+  btnCallback: () => void;
 }

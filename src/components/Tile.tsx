@@ -5,13 +5,17 @@ interface OuterProp {
 }
 interface Prop {
   coord: ICoord;
-  tileClick: (coord: ICoord) => void;
+  id: number;
+  tileClick: (coord: ICoord, id: number) => void;
   highlight?: boolean;
 }
 const TileBlock = styled.div<OuterProp>`
+  display: flex;
+  align-items: center;
+  text-align: center;
   background-color: gray;
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
   margin: 4px;
   border-radius: 5px;
   cursor: pointer;
@@ -23,14 +27,19 @@ const TileBlock = styled.div<OuterProp>`
     css`
       background-color: green;
     `}
+  & img {
+    height: 50px;
+    width: 50px;
+    margin: auto;
+  }
 `;
-const Tile: React.FC<Prop> = ({ coord, tileClick, highlight }) => {
+const Tile: React.FC<Prop> = ({ id, coord, tileClick, highlight }) => {
   const click = () => {
-    tileClick(coord);
+    tileClick(coord, id);
   };
   return (
     <TileBlock highlight={!!highlight} onClick={click}>
-      {coord.x},{coord.y}
+      <img alt={'tile pic'} src={require(`../assets/${id}.png`)} />
     </TileBlock>
   );
 };

@@ -1,5 +1,4 @@
 import * as actionTypes from './actionTypes';
-import { useQuery, gql } from '@apollo/client';
 
 export function addScore(score: IScore) {
   const action: GameAction = {
@@ -18,7 +17,20 @@ export function removeTiles(coords: ICoord[]) {
     coords,
   };
 
-  return simulateHttpRequest(action);
+  return (dispatch: DispatchType) => {
+    dispatch(action);
+  };
+}
+
+export function highlightTiles(coords: ICoord[]) {
+  const action: GameAction = {
+    type: actionTypes.HIGHLIGHT_TILE,
+    coords,
+  };
+
+  return (dispatch: DispatchType) => {
+    dispatch(action);
+  };
 }
 
 export function simulateHttpRequest(action: GameAction) {
