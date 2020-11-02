@@ -32,10 +32,3 @@ export function highlightTiles(coords: ICoord[]) {
     dispatch(action);
   };
 }
-
-export function simulateHttpRequest(action: GameAction) {
-  // This is where we call GraphQL api to mutate data. Separate out to file of the component
-  return (dispatch: DispatchType) => {
-    dispatch(action);
-  };
-}
