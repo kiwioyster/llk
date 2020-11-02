@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import Tile from './Tile';
 import styled from 'styled-components';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { highlightTiles, removeTiles } from '../store/actionCreators';
 import tileMatch from '../utils/tileMatch';
 import Modal from './Modal';
