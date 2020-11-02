@@ -7,11 +7,22 @@ const shuffle = (d: number[]) => {
 
 const getRandomTiles = (initialGrid: ICell[][]): ICell[][] => {
   let partial: number[] = [];
-  for (let i = 0; i < 35; ++i) {
+  for (let i = 0; i < 32; ++i) {
     partial[i] = i;
   }
+  let filler: number[] = [];
+  for (let i = 0; i < 6; ++i) {
+    filler[i] = Math.floor(32 * Math.random());
+  }
 
-  const rand = shuffle([...partial, ...partial, ...partial, ...partial]);
+  const rand = shuffle([
+    ...partial,
+    ...partial,
+    ...partial,
+    ...partial,
+    ...filler,
+    ...filler,
+  ]);
 
   return initialGrid.map((row, x) => {
     return row.map((col, y) => {

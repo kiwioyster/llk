@@ -17,6 +17,7 @@ const GameGrid: React.FC = () => {
   const [activeTile, setActiveTile] = useState<{ coord: ICoord; id: number }>();
   const [errorTile, setErrorTile] = useState<{ coord: ICoord; id: number }>();
   const [addSec, setAddSec] = useState<number>(0);
+  const [pause, setPause] = useState<boolean>(false);
   const grid: readonly ICell[][] = useSelector(
     (state: GameState) => state.grid
   );
@@ -79,6 +80,7 @@ const GameGrid: React.FC = () => {
 
   useEffect(() => {
     if (!grid.find((row) => row.find((row) => row.content === 'tile'))) {
+      setPause(true);
       setModal({
         header: 'You Won!',
         type: 'success',
@@ -98,6 +100,7 @@ const GameGrid: React.FC = () => {
         initSec={INIT_TIMER}
         timesUpCallback={timesUpCallback}
         addSec={addSec}
+        pause={pause}
       ></Score>
       {grid.map((row, i) => (
         <GridRow key={i}>
