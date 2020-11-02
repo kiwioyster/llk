@@ -10,7 +10,7 @@ const Background = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-black-50);
   z-index: 1;
 `;
 const ModalBlock = styled.div<OuterProp>`
@@ -19,28 +19,30 @@ const ModalBlock = styled.div<OuterProp>`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  background-color: green;
+  background-color: var(--color-aero);
   width: 350px;
   height: 380px;
   margin: 4px;
   border-radius: 5px;
+  & * {
+    color: var(--color-black);
+  }
   & button {
     width: 200px;
     height: 50px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    background-color: var(--color-blue);
+    font-size: 16px;
   }
   & p {
     height: 80px;
   }
-  &:active {
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5) inset;
-  }
   ${(props) =>
     props.type === 'error' &&
     css`
-      background-color: red;
+      background-color: var(--color-melon);
     `}
 `;
 const Modal: React.FC<ModalProps> = ({

@@ -15,16 +15,6 @@ const getRandomTiles = (initialGrid: ICell[][]): ICell[][] => {
 
   return initialGrid.map((row, x) => {
     return row.map((col, y) => {
-      if (
-        !(
-          x === 0 ||
-          x === initialGrid.length - 1 ||
-          y === 0 ||
-          y === row.length - 1
-        )
-      )
-        console.log(rand[y + (x - 1) * 14 - 1], x, y);
-
       return {
         coord: { x, y },
         content:
