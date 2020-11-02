@@ -35,19 +35,20 @@ const tileMatch = (
   repeats: number = 0,
   turns: number = 0
 ): ICoord[] | undefined => {
+  const MAX_TURN: number = 2;
   if (repeats && repeats > 56) {
     return undefined;
   }
   if (isAdjacentCoord(coord.a, coord.b)) {
     if (
-      turns > 3 ||
+      turns > MAX_TURN ||
       (coordHistory.length > 1 &&
         !isStraightPath(
           coordHistory[coordHistory.length - 2],
           coordHistory[coordHistory.length - 1],
           coord.b
         ) &&
-        turns >= 3)
+        turns >= MAX_TURN)
     ) {
       return undefined;
     } else {
@@ -95,7 +96,7 @@ const tileMatch = (
           newTurns++;
         }
       }
-      if (newTurns > 3) {
+      if (newTurns > MAX_TURN) {
         return undefined;
       }
 

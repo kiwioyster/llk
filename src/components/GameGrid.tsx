@@ -83,7 +83,7 @@ const GameGrid: React.FC = () => {
   return (
     <div>
       <Score
-        initSec={20}
+        initSec={50}
         timesUpCallback={timesUpCallback}
         addSec={addSec}
       ></Score>
